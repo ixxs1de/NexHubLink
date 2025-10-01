@@ -1,29 +1,24 @@
--- Config
 local Config = {
-    KeyURL = "https://example.com/key" -- You can change this link
+    KeyURL = "https://example.com/key"
 }
 
--- Create UI
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.ResetOnSpawn = false
 ScreenGui.Parent = game.CoreGui
 
--- Main Frame
 local Frame = Instance.new("Frame")
 Frame.Size = UDim2.new(0, 400, 0, 250)
 Frame.AnchorPoint = Vector2.new(0.5, 0.5)
-Frame.Position = UDim2.new(0.5, 0, 0.5, 0) -- Center of the screen
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
 Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderColor3 = Color3.fromRGB(128, 0, 128)
 Frame.BorderSizePixel = 3
 Frame.Parent = ScreenGui
 
--- Rounded corners for frame
 local FrameCorner = Instance.new("UICorner")
 FrameCorner.CornerRadius = UDim.new(0, 15)
 FrameCorner.Parent = Frame
 
--- Title
 local Title = Instance.new("TextLabel")
 Title.Size = UDim2.new(1, 0, 0, 50)
 Title.Position = UDim2.new(0, 0, 0, 0)
@@ -34,7 +29,6 @@ Title.Font = Enum.Font.SourceSansBold
 Title.TextSize = 24
 Title.Parent = Frame
 
--- Input TextBox
 local TextBox = Instance.new("TextBox")
 TextBox.Size = UDim2.new(0, 300, 0, 50)
 TextBox.Position = UDim2.new(0.5, -150, 0.4, -25)
@@ -46,12 +40,10 @@ TextBox.TextSize = 24
 TextBox.PlaceholderText = "Enter Key"
 TextBox.Parent = Frame
 
--- Rounded corners for TextBox
 local TextBoxCorner = Instance.new("UICorner")
 TextBoxCorner.CornerRadius = UDim.new(0, 10)
 TextBoxCorner.Parent = TextBox
 
--- Get Key Button
 local GetKeyButton = Instance.new("TextButton")
 GetKeyButton.Size = UDim2.new(0, 140, 0, 50)
 GetKeyButton.Position = UDim2.new(0.25, -70, 0.75, -25)
@@ -66,7 +58,6 @@ local GetKeyCorner = Instance.new("UICorner")
 GetKeyCorner.CornerRadius = UDim.new(0, 10)
 GetKeyCorner.Parent = GetKeyButton
 
--- Submit Button
 local SubmitButton = Instance.new("TextButton")
 SubmitButton.Size = UDim2.new(0, 140, 0, 50)
 SubmitButton.Position = UDim2.new(0.75, -70, 0.75, -25)
@@ -81,7 +72,6 @@ local SubmitCorner = Instance.new("UICorner")
 SubmitCorner.CornerRadius = UDim.new(0, 10)
 SubmitCorner.Parent = SubmitButton
 
--- Get Key Function
 GetKeyButton.MouseButton1Click:Connect(function()
     setclipboard(Config.KeyURL)
     GetKeyButton.Text = "Copied!"
@@ -89,14 +79,12 @@ GetKeyButton.MouseButton1Click:Connect(function()
     GetKeyButton.Text = "Get Key"
 end)
 
--- Submit Function
 SubmitButton.MouseButton1Click:Connect(function()
     local input = TextBox.Text
     if input == "" then
         SubmitButton.Text = "Empty!"
     else
         SubmitButton.Text = "Submitted"
-        -- Here you can add key validation
         wait(1)
         SubmitButton.Text = "Submit"
     end
