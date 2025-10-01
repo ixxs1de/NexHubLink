@@ -1,5 +1,5 @@
 local Config = {
-    KeyURL = "https://example.com/key"
+    KeyURL = "https://clk.li/tXNM"
 }
 
 local ScreenGui = Instance.new("ScreenGui")
